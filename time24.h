@@ -30,7 +30,7 @@ class time24
       time24(int h, int m);
 	      // constructor initializes hour and minute
 
-      void addTime(int m);
+     virtual void addTime(int m);
 			// update time by adding m minutes to the current time
 			// Precondition:  m must be >= 0 
 			// Postcondition: The new time is m minutes later 
@@ -41,12 +41,12 @@ class time24
 			// Precondition:  time t must not be earlier than the current time.
 			// if it is, throw a rangeError exception
 
-      void readTime();
+      virtual void readTime();
 			// input from the keyboard time in the form hh:mm
 			// Postcondition: Assign value hh to hour and mm to minute and 
 			// adjust units to the proper range.
 
-      void writeTime() const;
+      virtual void writeTime() const;
 			// display on the screen the current time in the form hh:mm
 
 
@@ -59,34 +59,34 @@ class time24
 		// THESE FUNCTIONS ARE DISCUSSED IN CHAPTER 2 ON OPERATOR
 		// OVERLOADING
 
-	friend bool operator== (const time24& lhs, const time24& rhs);
+		friend bool operator== (const time24& lhs, const time24& rhs);
 
-      friend bool operator<  (const time24& lhs, const time24& rhs);
+    	friend bool operator<  (const time24& lhs, const time24& rhs);
 
-      friend time24 operator+ (const time24& lhs, const time24& rhs);
+    	friend time24 operator+ (const time24& lhs, const time24& rhs);
 			// form and return lhs + rhs
-      friend time24 operator+ (const time24& lhs, int min);
+    	friend time24 operator+ (const time24& lhs, int min);
 			// form and return lhs + min
 			// Precondition:  min must be >= 0 
-      friend time24 operator+ (int min, const time24& rhs);
+      	friend time24 operator+ (int min, const time24& rhs);
 			// form and return min + rhs
 			// Precondition:  min must be >= 0 
-      friend time24 operator- (const time24& lhs, const time24& rhs);
+      	friend time24 operator- (const time24& lhs, const time24& rhs);
 			// form and return lhs - rhs
 			// Precondition: lhs >= rhs. if not, throw a rangeError exception
  
-      time24& operator+= (const time24& rhs);
+      	time24& operator+= (const time24& rhs);
 			// current object = current object + rhs
 			// Postcondition: the time increases by the value of rhs
-      time24& operator+= (int min);
+      	time24& operator+= (int min);
 			// current object = current object + min
 			// Precondition:  min must be >= 0 
 			// Postcondition: the time increases by min minutes
 
-      friend istream& operator>> (istream& istr, time24& t);
+      	friend istream& operator>> (istream& istr, time24& t);
 			// input t in the format hh:mm. may omit the leading digit
 			// if hours or minutes < 10
-      friend ostream& operator<< (ostream& ostr, const time24& t);
+      	friend ostream& operator<< (ostream& ostr, const time24& t);
 			// output t in the format hh:mm. always include two digits
 			// for the minute (e.g. 15:07). hours before 12 use 1 digit
 			// and precede the hour by a blank (e.g. " 7:15")

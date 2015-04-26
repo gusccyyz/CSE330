@@ -7,43 +7,29 @@
 #include "time12.h"
 #include "time24.h"
 #include <iostream>
+#include <iomanip>
+
+#include "d_except.h"
 
 using namespace std;
 
-time12::time12(hou,min,day){
+time12::time12(hou,min,tunit):time24(hou,min){
 	this -> hours = hou;
 	this -> minutes = min;
 	//this -> seconds = 0;
 }
-int time12::getHour(){
+void time12::addTime(int m) : time24::addTime(m){
+	return "Adding time to clock"; 
+}
+void time12::readTime(){
 
 }
-int time12::minutes(){
+void time12::writeTime(){
 
 }
-void int time12::convert(){
-
-}
-void addTime(tim){
-	int temp = tim;
-
-	int thou = temp / 60;
-	int tmin = temp % 60;
-
-	int newhou = thou + hours;
-	int newmin = tmin + minutes;
-
-	if (newhou > 12) {
-		newhou = newhou - 12;
-		if (day == "AM") {
-			this -> day = "PM";
-		}
-		else {
-			this -> day = "AM";
-		}
+time24 time12::convert(int hou, int min, timeUnit tunit){
+	if (tunit == "pm" || tunit == "PM" || tunit == "Pm" || tunit == "pM") {
+		hou =+ 12;
+		new time24(hou,min);
 	}
-	time12::time12(newhou,newmin,day);
-}
-void time12::readTIme(){
-	cout << "Current time is: " << hours << " " << minutes << " " << seconds << " " << day << endl; 
 }

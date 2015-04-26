@@ -6,6 +6,9 @@
 // Title: time 24
 #include "time24.h"
 #include <iostream>
+#include <iomanip>
+
+#include "d_except.h"
 
 using namespace std;
 
@@ -62,6 +65,7 @@ void time24::readTime()
    cin >> hour >> colonSeparator >> minute;
    // make sure hour and minute are in range
    normalizeTime();
+	cout << time12::convert() << endl;
 }
 
 // output time in the format <hour>:<minute>
@@ -102,34 +106,34 @@ int time24::getMinute() const
 }
 
 // compare hours and minutes
-bool operator== (const time24& lhs, const time24& rhs)
+bool time24::operator== (const time24& lhs, const time24& rhs)
 {
 	return lhs.hour == rhs.hour && lhs.minute == rhs.minute;
 }
 
 // convert the hour and minute values for each operand to 
 // minutes. compare lhs in minutes with rhs in minutes 
-bool operator<  (const time24& lhs, const time24& rhs)
+bool time24::operator<  (const time24& lhs, const time24& rhs)
 {
 	return (lhs.hour*60 + lhs.minute) < (rhs.hour*60 + rhs.minute);
 }
 
 // create an anonymous object with hour = lhs.hour + rhs.hour 
 // and minute = lhs.minute+rhs.minute.
-time24 operator+ (const time24& lhs, const time24& rhs)
+time24 time24::operator+ (const time24& lhs, const time24& rhs)
 {
 	return time24(lhs.hour+rhs.hour, lhs.minute+rhs.minute);
 }
 
 // create an anonymous object with hour = lhs.hour and  
 // minute = lhs.minute + min.
-time24 operator+ (const time24& lhs, int min){
+time24 time24::operator+ (const time24& lhs, int min){
 	return time24(lhs.hour, lhs.minute + min);
 }
 
 // return the value rhs + min that is computed by
 //    time24 operator+ (const time24& lhs, int min)
-time24 operator+ (int min, const time24& rhs)
+time24 time24::operator+ (int min, const time24& rhs)
 {
 	return rhs + min; 
 }
@@ -137,7 +141,7 @@ time24 operator+ (int min, const time24& rhs)
 // using the < operator, check whether lhs < rhs is true. if so
 // terminate; otherwise return a time24 result built
 // using the constructor
-time24 operator- (const time24& lhs, const time24& rhs)
+time24 time24::operator- (const time24& lhs, const time24& rhs)
 {
 	if (lhs < rhs)
 		throw rangeError("time24 operator-: Cannot subtract later from earlier time");
@@ -172,7 +176,7 @@ time24& time24::operator+= (int min)
 
 // overload stream operator >>. input has the form
 //   hour:minute 
-istream& operator>> (istream& istr, time24& t)
+istream& time24::operator>> (istream& istr, time24& t)
 {
    char separatorChar;
 
@@ -186,7 +190,7 @@ istream& operator>> (istream& istr, time24& t)
 	
 // overload stream operator <<. output in the form
 //   hour:minute 
-ostream& operator<< (ostream& ostr, const time24& t)
+ostream& time24::operator<< (ostream& ostr, const time24& t)
 {
 	// the implementation uses stream handling functions
 	// not discussed in the book. consult your compiler
