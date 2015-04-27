@@ -5,7 +5,7 @@
 // Lab 1
 // Title: time 12
 #include "time12.h"
-#include "time24.h"
+#include "d_time24.h"
 #include <iostream>
 #include <iomanip>
 
