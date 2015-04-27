@@ -65,7 +65,7 @@ void time24::readTime()
    cin >> hour >> colonSeparator >> minute;
    // make sure hour and minute are in range
    normalizeTime();
-	cout << time12::convert() << endl;
+	cout << hour << " : " << minute << endl;
 }
 
 // output time in the format <hour>:<minute>

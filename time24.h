@@ -98,4 +98,4 @@ class time24
 		// and the minute value in the range 0 to 50
 		void normalizeTime();     
 };
-#endif TIME24_CLASS
+#endif
