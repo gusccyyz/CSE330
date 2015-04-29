@@ -46,6 +46,8 @@ int seqSearch(const vector<T>& v, int first, int last, const T& target){
 }
 
 int main(){
-	vector <int> intcck;//	This will create the vector to check the int
-	vector <string> strcck;//	This will create the vecctor to check the string
+	vector <int> intcck(intarr);//	This will create the vector to check the int
+	int intarr[] = {1, 2, 6, 7, 10, 22, 19, 33, 35};
+	vector <string> strcck(strarr);//	This will create the vecctor to check the string
+	string strarr[] = {"abs", "awp", "bhg", "sghsh", "het", "hetet"};
 }
