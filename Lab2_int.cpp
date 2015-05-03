@@ -40,10 +40,9 @@ template <typename T>
 int seqSearch(const vector<T>& v, T first, T last, const T& target, const int range){
 	//int range in this respect is going to be the range that the system will search for the value
 	vector <T> :: const_iteration iter;
-	for (int i = 0; i < ; i++) {
+	for (int i = 0; i < v.size(); i++) {
 		if (i == range) {
 			if (target == v[i]) {
-				return i;
 				cout << target << " was found at index: " << i << endl;
 			}
 				else {
