@@ -37,33 +37,49 @@ Search for "abc" in range 1 to 4.  Return index if found or return  -1 if not fo
 
 using namespace std;
 
-int main(){
-	int intarr[9] = {1, 2, 6, 7, 10, 22, 19, 33, 35};
-	vector <int> intcck(intarr, intarr + 9);//	This will create the vector to check the int
-
-	string strarr[6] = {"abs", "awp", "bhg", "sghsh", "het", "hetet"};
-	vector <string> strcck(strarr, strarr + 6);//	This will create the vecctor to check the string
-
-	seqSearch(intcck, intcck.begin(), intcck.end(), 10);
-
-	intcck.seqSearch(intcck, intcck.begin(), intcck.end(), 10, 6);
-	strcck.seqSearch(strcck, strcck.begin(), strcck.end(), "het", strcck.size());
-	strcck.seqSearch(strcck, strcck.begin(), strcck.end(), "abc", 4);
-}
-
 template <typename T>
-int seqSearch(const vector<T>& v, T first, T last, const T& target, const int range){
+int seqSearch(const vector<T> v, int first, int last, const T& target, int range){
 	//int range in this respect is going to be the range that the system will search for the value
 	//vector <T> :: const_iteration iter;
+	bool check = false;
+	int index;
 	for (int i = 0; i < v.size(); i++) {
-		if (i == range) {
+		if (!check) {
 			if (target == v[i]) {
-				cout << target << " was found at index: " << i << endl;
+				check = true;
+				index = i;
 			}
-				else {
-				return -1;
-				cout << "Value not found." << endl;
+			else {
+				cout << "-1" << endl;
 			}
 		}
+		if (check) {
+			cout << target << " found at index " << index << ". "<< endl;
+			break;
+		 }
 	}
+	return 0;
+}
+
+int main(){
+	int intarr[] = {1, 2, 6, 7, 10, 22, 19, 33, 35};
+	vector <int> intcck(intarr, intarr + 9);//	This will create the vector to check the int
+
+	string strarr[] = {"abs", "awp", "bhg", "sghsh", "het", "hetet"};
+	vector <string> strcck(strarr, strarr + 6);//	This will create the vecctor to check the string
+
+	//seqSearch(intcck, intcck.begin(), intcck.end(), 10);
+
+	string x = "het";
+	string y = "abc";
+
+	seqSearch(intcck, 0, 8, 10, 8);
+
+	seqSearch(intcck, 0, 8, 35, 6);
+
+	cout << "Searching for " << x << endl;
+	seqSearch(strcck, 0, 5, x, 7);
+
+	cout << "Searching for " << y << endl;
+	seqSearch(strcck, 0, 5, y, 5);
 }
