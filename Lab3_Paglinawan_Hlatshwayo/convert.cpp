@@ -14,6 +14,11 @@
 Convert::Convert(){
 
 }
-Convert::prec(){
-	
+Convert::prec(input){
+	//operator +
+	//operator -
+	//operator *
+	//operator /
+	//operator (
+	//operator )
 }
