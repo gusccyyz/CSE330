@@ -16,7 +16,7 @@ class Convert {
 	public:
 		Convert();
 		prec(input);
-		addWeight();
+		addWeight(input);
 	private:
 		string oper;
 		int weight;
