@@ -37,7 +37,6 @@ int main() {
 			        if (!s.empty()) {
 			                s.pop();
 			            }
-			        else cerr << "No matching ’(’\n";
 			    }
 			else if (s.empty() || Convert::prec(s.top()) < Convert::prec(input)){	//stack is empty or prec(top of stack) < prec(input) // bottom of stack has lower precedence than everything
 			        push input on stack
