@@ -10,15 +10,15 @@
 #include <stack>
 #include <string>
 #include <iostream>
-#include "convert.h"
-Convert::Convert(){
 
-}
-Convert::prec(input){
-	input = oper;
-	switch
-	Convert::addWeight();
-}
-Convert::addWeight(){
-	
-}
+using namespace std;
+class Convert {
+	public:
+		Convert();
+		prec(input);
+		addWeight();
+	private:
+		string oper;
+		int weight;
+};
+#endif
