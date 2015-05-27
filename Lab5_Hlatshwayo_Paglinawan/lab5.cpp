@@ -17,12 +17,45 @@
 
 	Header for the code (standard for all labs, with appropriate adjustments of course like for the lab title,etc.):
 */
-#include <iostream>
-#include "stack_template.h"
 
-using namespace std;
+#include <iostream> // cout
+#include "stack.h" // stack
+#include <string>
 
 int main() {
-	Stack::push();
-	return 0;
+    Stack::stack<std::string> name_stack; 
+
+    // push some names onto the stack
+    name_stack.push("John");
+    name_stack.push("Jane");
+    name_stack.push("Wen");
+    
+    // remove the top two elements, printing the top of the stack each time
+    name_stack.pop();
+    std::cout << name_stack.top() << std::endl;
+    name_stack.pop();
+    std::cout << name_stack.top() << std::endl;	
+
+    // push some names onto the stack
+    name_stack.push("Audrey");
+    name_stack.push("Alice");
+    name_stack.push("Teresa");  
+    
+    // remove the top two elements, printing the top of the stack each time
+    name_stack.pop();
+    std::cout << name_stack.top() << std::endl;
+    name_stack.pop();
+    std::cout << name_stack.top() << std::endl;	
+    
+    // print the current size of the stack
+    std::cout << "The size of the stack is: " << name_stack.size() << std::endl;
+
+    // print the top element of the stack, pop until empty stack
+    
+    while (!name_stack.empty()) {
+        std::cout << name_stack.top() << std::endl;
+        name_stack.pop();
+    }
+
+    return 0; // success
 }
