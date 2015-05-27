@@ -8,6 +8,7 @@ using namespace std;
 
 class Stack {
 public:
+   Stack();
    /**
       Pushes a value onto the stack.
    */
@@ -31,8 +32,11 @@ private:
    list<string> elements;
 };
 
-void Stack::push(string s)
-{
+Stack::Stack(){
+   
+}
+
+void Stack::push(string s){
    elements.push_front(s);
 }
 
