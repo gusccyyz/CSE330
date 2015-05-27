@@ -36,20 +36,21 @@ void Stack::push(string s)
    elements.push_front(s);
 }
 
-string Stack::top(){
-   return elements[0];
+string Stack::top() const{
+   string frst = elements.end();
+   return frst; // This will set the first value in the stack to the first string 
 }
 
 void Stack::pop(){
    while (!elements.empty()){
-      string lst; // This is going to be set to the last string in the list
-      elements.end();
+      string del;
+      *del = elements.end();
+      del--;
    }
 }
 
 int Stack::size() const{
-   while (!elements.empty()){
-      return elements.size();
-   }
+   int s = elements.size();
+   return s;
 }
 #endif
