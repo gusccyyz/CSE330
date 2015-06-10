@@ -24,23 +24,67 @@ Blackboard. That would be the o cial turn-in time.
 // Lab 7
 //Title: sieve
 
-#include <map>
+#include <set>
+#include <vector>
 #include <iostream>
 
 using namespace std;
 
 int main(){
-	map <int> listSet;
-	for (int i = 0; i < count; i++){
-		/* code */
-		if (listSet[i] ){
 
+	set <int> listSet;
+	vector <int> listVec;
+
+	int count = 1000;
+	int n = *count;
+	for (int i = 0; i < n; i++) {
+		
+	}
+	for (int i = 0; i < count; i++){
+
+		// This is going to get the stuff from the vector
+
+		int numSet = listSet[i];
+		int numVec = listVec[i];
+
+
+		switch (numSet) {
+
+			// Each case will remove the number from the vector
+
+			case numSet % 2 == 0:
+
+				break;
+
+			case numSet % 3 == 0: 
+
+				break;
+
+			case numSet % 5 == 0:
+
+				break;
+
+			case numSet % 7 == 0:
+
+				break;
 		}
-		else if (/* condition */){
-			/* code */
-		}
-		else if (/* condition */){
-			/* code */
+		switch (numVec) {
+
+			case numSet % 2 == 0:
+
+				break;
+
+			case numSet % 3 == 0: 
+
+				break;
+
+			case numSet % 5 == 0:
+
+				break;
+
+			case numSet % 7 == 0:
+
+				break;
 		}
 	}
 	return 0;
